@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/11624771/adding-a-hot-key-to-my-delphi-app
