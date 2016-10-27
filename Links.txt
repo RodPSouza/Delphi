@@ -1,1 +1,2 @@
 http://stackoverflow.com/questions/11624771/adding-a-hot-key-to-my-delphi-app
+http://www.activedelphi.com.br/forum/viewtopic.php?p=2580&sid=812c30cdb125a1dbb9b82d15f34096ed
