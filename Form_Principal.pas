@@ -4,14 +4,17 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, DBGrids, StdCtrls;
+  Dialogs, Grids, DBGrids, StdCtrls, TrayIcon;
 
 type
   TForm1 = class(TForm)
     Edit1: TEdit;
     DBGrid1: TDBGrid;
+    TrayIcon1: TTrayIcon;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TrayIcon1Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -25,7 +28,7 @@ var
 
 implementation
 
-uses Unit2;
+uses Unit_Teste;
 
 {$R *.dfm}
 
@@ -46,8 +49,34 @@ end;
 procedure TForm1.WMHotKey(var Msg: TWMHotKey);
 begin
   //Teste Simples
-  Form2.Show;
+  TrayIcon1.Visible := False;
+  Show();
+  WindowState := wsNormal;
+  Application.BringToFront();
+
+
+
 
 End;
+
+
+
+
+procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Self.Hide();
+  Self.WindowState := wsMinimized;
+  TrayIcon1.Visible := True;
+  Action := caNone;
+end;
+
+procedure TForm1.TrayIcon1Click(Sender: TObject);
+begin
+  TrayIcon1.Visible := False;
+  Show();
+  WindowState := wsNormal;
+  Application.BringToFront();
+
+end;
 
 end.
